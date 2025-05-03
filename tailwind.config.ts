@@ -6,7 +6,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        primary: ['Inter', ...defaultTheme.fontFamily.sans],
+        primary: ['Open Sans', ...defaultTheme.fontFamily.sans],
+        openSans: ['var(--font-open-sans)'],
+      },
+      fontSize: {
+        badge: '15px',
       },
       colors: {
         primary: {
@@ -26,6 +30,23 @@ export default {
         dark: '#222222',
       },
       keyframes: {
+        glow: {
+          '0%, 100%': { boxShadow: '0 0 0px #facc15' },
+          '50%': { boxShadow: '0 0 15px #facc15' },
+        },
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        },
+        pop: {
+          '0%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.1)' },
+          '100%': { transform: 'scale(1)' },
+        },
+        'slide-in': {
+          '0%': { transform: 'translateX(100%)', opacity: 0 },
+          '100%': { transform: 'translateX(0)', opacity: 1 },
+        },
         flicker: {
           '0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100%': {
             opacity: '0.99',
@@ -45,10 +66,19 @@ export default {
             backgroundPosition: '700px 0',
           },
         },
+        hop: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
       },
       animation: {
+        glow: 'glow 2s ease-in-out infinite',
+        wiggle: 'wiggle 0.5s ease-in-out infinite',
+        pop: 'pop 0.7s ease-in-out infinite',
+        'slide-in': 'slide-in 0.5s ease-out forwards',
         flicker: 'flicker 3s linear infinite',
         shimmer: 'shimmer 1.3s linear infinite',
+        hop: 'hop 1s ease-in-out infinite', // 1s = 0.5s up, 0.5s down
       },
     },
   },

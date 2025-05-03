@@ -22,6 +22,12 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 import NextImage from '@/components/NextImage';
 import Skeleton from '@/components/Skeleton';
 
+import Hero from '@/app/components/sections/hero';
+import LocationsSection from '@/app/components/sections/locations-badges';
+import NavigationHeader from '@/app/components/sections/navigationHeader';
+import Steps from '@/app/components/sections/steps';
+import { SERVING_CITIES } from '@/constant/constants';
+
 type Color = (typeof colorList)[number];
 
 export default function ComponentPage() {
@@ -35,6 +41,16 @@ export default function ComponentPage() {
 
   return (
     <main>
+      <NavigationHeader />
+      {/* <div className='animate-glow w-32 h-12 bg-yellow-400'>SALE</div> */}
+
+      <Hero />
+
+      <div className='max-w-screen-xl mx-auto'>
+        <LocationsSection locations={SERVING_CITIES} />
+        <Steps />
+      </div>
+
       <section
         className={clsx(mode === 'dark' ? 'bg-dark' : 'bg-white', color)}
       >
